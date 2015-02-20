@@ -12,6 +12,9 @@ Run aws-compose to launch an application defined in fig.yaml:
 
 ```
 docker run \
+  --rm \
+  -t \
+  -v ~/.dockercfg:/root/.dockercfg:ro \
   -v $(pwd)/fig.yml:/fig.yml:ro \
   -v /var/run/docker.sock:/var/run/docker.sock:rw \
   fr3nd/docker-compose \
