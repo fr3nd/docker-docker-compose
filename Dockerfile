@@ -1,12 +1,10 @@
-FROM debian:jessie
+FROM alpine:3.1
 MAINTAINER Carles Amigó, fr3nd@fr3nd.net
 
-RUN apt-get update && apt-get install -y \
-      git \
-      python-pip
+RUN apk --update add git python py-pip
 
 ENV DOCKERCOMPOSE_VERSION 1.1.0
 
 RUN pip install -e git+https://github.com/docker/compose.git@$DOCKERCOMPOSE_VERSION#egg=docker-compose
 
-ENTRYPOINT [ "/usr/local/bin/docker-compose" ]
+ENTRYPOINT [ "/usr/bin/docker-compose" ]
