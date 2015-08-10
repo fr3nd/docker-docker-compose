@@ -8,6 +8,6 @@ ENV DOCKERCOMPOSE_VERSION 1.3.3
 RUN pip install -e git+https://github.com/docker/compose.git@$DOCKERCOMPOSE_VERSION#egg=docker-compose
 
 RUN mkdir -p /workspace
-WORKSPACE /workspace
+WORKDIR /workspace
 
 ENTRYPOINT [ "/usr/bin/docker-compose" ]
